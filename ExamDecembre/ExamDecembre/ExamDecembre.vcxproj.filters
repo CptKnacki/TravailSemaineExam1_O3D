@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Date">
+      <UniqueIdentifier>{771d2e20-85ae-48b8-9f39-637225534f4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Booking">
+      <UniqueIdentifier>{4156cef1-0990-4688-92be-3d1922a9f50a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AddBookingWindow">
+      <UniqueIdentifier>{b210054f-3f3e-4fe1-ba23-79aea679f24b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainMenuWindow">
+      <UniqueIdentifier>{5b6eb57d-ed9a-439e-8082-271b3012b7cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShowBookingWindow">
+      <UniqueIdentifier>{8912aafa-e49a-4e16-adfb-d9c863736c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BookingWindow">
+      <UniqueIdentifier>{9a86619b-34a7-41c9-b241-f1d27baeed37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{f881212f-e9db-4498-8879-9a0c51a6a621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HotelApplication">
+      <UniqueIdentifier>{ee5571ad-801f-419f-be36-8084e9d96272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{ca692beb-c0b7-4214-a64d-1f7483b3e2e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Singleton">
+      <UniqueIdentifier>{322f5762-30a5-43d7-8a22-28ba70cb1bb6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Date</Filter>
+    </ClCompile>
+    <ClCompile Include="Booking.cpp">
+      <Filter>Booking</Filter>
+    </ClCompile>
+    <ClCompile Include="ExamDecembre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuWindow.cpp">
+      <Filter>MainMenuWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="AddBookingWindow.cpp">
+      <Filter>AddBookingWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="BookingWindow.cpp">
+      <Filter>BookingWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowBookingWindow.cpp">
+      <Filter>ShowBookingWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="HotelApplication.cpp">
+      <Filter>HotelApplication</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Date</Filter>
+    </ClInclude>
+    <ClInclude Include="Booking.h">
+      <Filter>Booking</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuWindow.h">
+      <Filter>MainMenuWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="AddBookingWindow.h">
+      <Filter>AddBookingWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="BookingWindow.h">
+      <Filter>BookingWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowBookingWindow.h">
+      <Filter>ShowBookingWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="HotelApplication.h">
+      <Filter>HotelApplication</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Utils\Singleton</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
