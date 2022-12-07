@@ -1,5 +1,7 @@
 #pragma once
 #include "Window.h"
+#include <vector>
+#include "Booking.h"
 
 class ShowBookingWindow : public Window
 {
@@ -13,19 +15,15 @@ public:
 	ShowBookingWindow(const std::string _title = "Booking View");
 #pragma endregion
 
-#pragma region Override
+#pragma region Methods
 public:
 	/// <summary>
 	///		Used to display the show booking menu that contains a return button and an array
 	///		 of button regarding the number of saved bookings, if clicked on,
 	///		 it will display the booking window of the chosen booking
 	/// </summary>
-	void Show() override;
+	int Show(HWND _window, std::vector<Booking> _bookings);
 
-	/// <summary>
-	///		Used to close these window to let another one open on top of it
-	/// </summary>
-	void Close() override;
 #pragma endregion
 
 };

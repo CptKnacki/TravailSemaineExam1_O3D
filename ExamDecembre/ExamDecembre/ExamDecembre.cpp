@@ -8,6 +8,9 @@
 #include "HotelApplication.h"
 #include "Window.h"
 #include "MainMenuWindow.h"
+#include "BookingWindow.h"
+#include "ShowBookingWindow.h"
+#include "AddBookingWindow.h"
 
 
 int main()
@@ -29,8 +32,28 @@ int main()
     //_hotel1.DeleteBooking(1);
     //_hotel1.DeleteBooking(0);
 
-    Window _window;
-    _window.Show();
+    //MainMenuWindow _window;
+    //BookingWindow _window;
+    //ShowBookingWindow _window;
+    //AddBookingWindow _window;
+
+
+    //_window.Show();
+
+    HotelApplication _hotel1 = HotelApplication();
+
+    Booking _booking1("Demoulins", "Aymeric", 2, Date(7,12,2022), Date(15,12,2022));
+    Booking _booking2("Terrieur", "Alain", 5, Date(16,12,2022), Date(31,12,2022));
+    //Booking _booking3("Terrieur", "Alex", 3, Date(21,1,2023), Date(25,1,2023));
+    //Booking _booking4("Onette", "Camille", 2, Date(13,2,2023), Date(27,2,2023));
+    //Booking _booking5("Koidal", "Elie", 2, Date(13,2,2023), Date(27,2,2023));
+    //Booking _booking6("Nouie", "Eva", 2, Date(13,2,2023), Date(27,2,2023));
+    //Booking _booking7("Vedertchi", "Harry", 2, Date(13,2,2023), Date(27,2,2023));
+
+    _hotel1.CreateBooking(_booking1);
+    _hotel1.CreateBooking(_booking2);
+ 
+    _hotel1.ShowBooking(0);
 
     std::cout << "Hello World!\n";
 

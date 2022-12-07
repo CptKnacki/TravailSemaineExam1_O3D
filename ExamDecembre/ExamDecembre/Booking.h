@@ -49,13 +49,13 @@ public:
 	///		Return the value of client's arrival date
 	/// </summary>
 	/// <returns> arrivalDate </returns>
-	Date GetArrivalDate();
+	Date& GetArrivalDate();
 
 	/// <summary>
 	///		Return the value of client's departure date
 	/// </summary>
 	/// <returns> departureDate </returns>
-	Date GetDepartureDate();
+	Date& GetDepartureDate();
 #pragma endregion
 };
 

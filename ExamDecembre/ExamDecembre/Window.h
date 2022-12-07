@@ -25,11 +25,6 @@ public:
 	virtual void Show();
 
 	/// <summary>
-	///		Supposed to do nothing here, will be used by herited class to hide their elements of the app screen
-	/// </summary>
-	virtual void Close();
-
-	/// <summary>
 	///		Getter on the title of the window
 	/// </summary>
 	/// <returns> title </returns>

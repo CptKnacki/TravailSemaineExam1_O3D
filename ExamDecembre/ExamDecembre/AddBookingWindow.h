@@ -1,5 +1,6 @@
 #pragma once
 #include "Window.h"
+#include "Booking.h"
 
 class AddBookingWindow : public Window
 {
@@ -13,7 +14,7 @@ public:
 	AddBookingWindow(const std::string _title = "Create New Booking");
 #pragma endregion
 
-#pragma region Override
+#pragma region Methods
 public:
 
 	/// <summary>
@@ -21,12 +22,8 @@ public:
 	///		 to choose client's schedule, there is also a return button and a save booking button
 	///		 that will send the info and create a new booking
 	/// </summary>
-	void Show() override;
+	Booking Show(HWND _window);
 
-	/// <summary>
-	///		Used to close these window to let another one open on top of it
-	/// </summary>
-	void Close() override;
 #pragma endregion
 
 };

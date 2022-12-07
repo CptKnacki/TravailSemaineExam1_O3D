@@ -39,12 +39,12 @@ int Booking::GetNumberOfGuests()
 	return numberOfGuests;
 }
 
-Date Booking::GetArrivalDate()
+Date& Booking::GetArrivalDate()
 {
 	return arrivalDate;
 }
 
-Date Booking::GetDepartureDate()
+Date& Booking::GetDepartureDate()
 {
 	return departureDate;
 }
