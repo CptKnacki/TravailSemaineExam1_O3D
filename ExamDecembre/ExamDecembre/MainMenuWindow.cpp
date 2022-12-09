@@ -7,11 +7,10 @@ MainMenuWindow::MainMenuWindow(const std::string _title) : Window(_title)
 {
 }
 
-
 #pragma endregion
 
 
-#pragma region Override
+#pragma region Methods
 
 int MainMenuWindow::Show(HWND _window)
 {
@@ -49,7 +48,21 @@ int MainMenuWindow::Show(HWND _window)
         NULL
     ); // Button 2 //          
 
-    TextOut(hdc, 300, 10, L"// Hotel Objectif3D //", 23); // Title //
+    HWND hwndStatic1 = CreateWindow(
+        L"Static",
+        L"// Hotel Objectif3D //",
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+
+        300,
+        10,
+        140,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 1 // 
 
 
     ShowWindow(_window, SW_SHOW);
@@ -63,6 +76,8 @@ int MainMenuWindow::Show(HWND _window)
             ShowWindow(hwndButton1, SW_HIDE);
             ShowWindow(hwndButton2, SW_HIDE);
 
+            ShowWindow(hwndStatic1, SW_HIDE);
+
             UpdateWindow(_window);
 
             return 1;
@@ -74,7 +89,9 @@ int MainMenuWindow::Show(HWND _window)
             ShowWindow(hwndButton1, SW_HIDE);
             ShowWindow(hwndButton2, SW_HIDE);
 
-     
+            ShowWindow(hwndStatic1, SW_HIDE);
+
+            UpdateWindow(_window);
 
             return 2;
         }

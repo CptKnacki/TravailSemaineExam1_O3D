@@ -6,10 +6,10 @@ class Booking
 {
 #pragma region f/p
 private:
-	std::string clientFirstName = "John";
-	std::string clientLastName = "Smith";
+	std::string clientFirstName = "";
+	std::string clientLastName = "";
 
-	int numberOfGuests = 1;
+	int numberOfGuests = 0;
 
 	Date arrivalDate = Date();
 	Date departureDate = Date();

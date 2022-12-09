@@ -6,35 +6,21 @@
 #include "MainMenuWindow.h"
 #include "ShowBookingWindow.h"
 
-#pragma region Constructor
-
 LRESULT WindowProc(HWND _hwnd, UINT _uMsg, WPARAM _wParam, LPARAM _lParam)
 {
-	switch (_uMsg)
-	{
-	case WM_PAINT:
-	{
-		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(_hwnd, &ps);
+	PAINTSTRUCT ps;
+	HDC hdc = BeginPaint(_hwnd, &ps);
+	RECT _rect = RECT(tagRECT(0,0,1600,900));
 
-		FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+	FillRect(hdc, &_rect, (HBRUSH)(CreateSolidBrush(RGB(240, 240, 240))));
 
-		//TextOut(hdc, 20, 100, L"Enter first name : ", 20); // Text 1 //
-		//TextOut(hdc, 20, 130, L"Enter last name : ", 19); // Text 2 //
+	EndPaint(_hwnd, &ps);
 
-		//TextOut(hdc, 20, 180, L"For how many people : ", 23); // Text 3 //
-
-		//TextOut(hdc, 300, 10, L"// Create New Booking //", 25); // Title //
-
-		EndPaint(_hwnd, &ps);
-	}
-		break;
-
-	default:
-		break;
-	}
 	return DefWindowProc(_hwnd, _uMsg, _wParam, _lParam);
+
 }
+
+#pragma region Constructor
 
 HotelApplication::HotelApplication()
 {
@@ -119,18 +105,9 @@ void HotelApplication::ShowAddMenu()
 
 	Booking _newBooking = addBooking.GetInstance()->Show(window);
 
-
 	if (_newBooking.GetFirstName() != "FALSE_BOOKING")
-	{
-		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(window, &ps);
-
-		int _result = CreateBooking(_newBooking);
-
-		 if(_result == 1) TextOut(hdc, 300, 60, L"/ Booking Sucessfully Created ! /", 34); // Title //
-		 else TextOut(hdc, 300, 60, L"/ ERROR No Booking Created ! /", 31); // Title //
-	}
-
+		CreateBooking(_newBooking);
+	
 	ShowMainMenu();
 }
 
@@ -158,10 +135,7 @@ void HotelApplication::ShowAllBookings()
 {
 	int _result = showAllBookings.GetInstance()->Show(window, bookingsList);
 
-
-	if (_result == 1)
-		ShowMainMenu();
-	else if (_result > 1)
+	if (_result > 1)
 		ShowBooking(_result - 2);
 	else
 		ShowMainMenu();
@@ -169,7 +143,7 @@ void HotelApplication::ShowAllBookings()
 
 void HotelApplication::ShowBooking(int _index)
 {
-	if (_index < 0 || _index > bookingsList.size()) return;
+	if (_index < 0 || _index > bookingsList.size()) ShowMainMenu();
 
 	Booking _booking = bookingsList[_index];
 	int _result = showBooking.GetInstance()->Show(window, _booking.GetFirstName(), _booking.GetLastName(), _booking.GetNumberOfGuests(), _booking.GetArrivalDate(), _booking.GetDepartureDate());
@@ -179,6 +153,7 @@ void HotelApplication::ShowBooking(int _index)
 
 	ShowMainMenu();
 }
+
 #pragma endregion
 
 

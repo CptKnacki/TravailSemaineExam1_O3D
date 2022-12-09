@@ -6,23 +6,19 @@
 #include <vector>
 #include <iostream>
 
-
-
 #pragma region Constructor
 
 AddBookingWindow::AddBookingWindow(const std::string _title) : Window(_title)
 {
 }
 
-
 #pragma endregion
 
 
-#pragma region Override
+#pragma region Methods
 
 Booking AddBookingWindow::Show(HWND _window)
 {
-
 
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(_window, &ps);
@@ -75,16 +71,20 @@ Booking AddBookingWindow::Show(HWND _window)
         NULL
     ); // Calendar //      
 
+    SYSTEMTIME lt;
+    GetLocalTime(&lt);
 
+    MonthCal_GetToday(hwndCal, &lt);
+    MonthCal_SetRange(hwndCal, GDTR_MIN, &lt);
 
     HWND hwndText = CreateWindow(
         L"Edit", 
         L"first name...",      
-        WS_TABSTOP | WS_VISIBLE | WS_CHILD,  
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD | WS_BORDER,
 
         150,       
         100,       
-        100,       
+        120,       
         20,  
 
         _window,     
@@ -96,11 +96,11 @@ Booking AddBookingWindow::Show(HWND _window)
     HWND hwndText2 = CreateWindow(
         L"Edit", 
         L"last name...",     
-        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD | WS_BORDER,
 
         150,       
         130,       
-        100,       
+        120,       
         20, 
 
         _window,     
@@ -112,11 +112,11 @@ Booking AddBookingWindow::Show(HWND _window)
     HWND hwndText3 = CreateWindow(
         L"Edit",    
         L"2",      
-        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD | WS_BORDER,
 
         180,        
         180,        
-        100,        
+        40,        
         20,    
 
         _window,     
@@ -127,13 +127,71 @@ Booking AddBookingWindow::Show(HWND _window)
 
     MonthCal_SetMaxSelCount(hwndCal, 100);
 
-    TextOut(hdc, 20, 100, L"Enter first name : ", 20); // Text 1 //
-    TextOut(hdc, 20, 130, L"Enter last name : ", 19); // Text 2 //
+    HWND hwndStatic1 = CreateWindow(
+        L"Static",
+        L"Enter first name : ",
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
 
-    TextOut(hdc, 20, 180, L"For how many people : ", 23); // Text 3 //
+        20,
+        100,
+        110,
+        20,
 
-    TextOut(hdc, 300, 10, L"// Create New Booking //", 25); // Title //
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 1 // 
+    
+    HWND hwndStatic2 = CreateWindow(
+        L"Static",
+        L"Enter last name : ",
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
 
+        20,
+        130,
+        110,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 2 // 
+
+    HWND hwndStatic3 = CreateWindow(
+        L"Static",
+        L"For how many people : ",
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+
+        20,
+        180,
+        150,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 3 // 
+
+    HWND hwndStatic4 = CreateWindow(
+        L"Static",
+        L"// Create New Booking //",
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+
+        300,
+        10,
+        160,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 4 // 
+
+    
 
     ShowWindow(_window, SW_SHOW);
 
@@ -149,12 +207,14 @@ Booking AddBookingWindow::Show(HWND _window)
             ShowWindow(hwndText2, SW_HIDE);
             ShowWindow(hwndText3, SW_HIDE);
 
+            ShowWindow(hwndStatic1, SW_HIDE);
+            ShowWindow(hwndStatic2, SW_HIDE);
+            ShowWindow(hwndStatic3, SW_HIDE);
+            ShowWindow(hwndStatic4, SW_HIDE);
+
             ShowWindow(hwndCal, SW_HIDE);
 
-
             UpdateWindow(_window);
-
-            TextOut(hdc, 300, 10, L"// Hotel Objectif3D //", 23); // Title //
 
             return Booking("FALSE_BOOKING", "FALSE_BOOKING", 0, Date(), Date());
         }
@@ -168,15 +228,21 @@ Booking AddBookingWindow::Show(HWND _window)
             ShowWindow(hwndText2, SW_HIDE);
             ShowWindow(hwndText3, SW_HIDE);
 
+            ShowWindow(hwndStatic1, SW_HIDE);
+            ShowWindow(hwndStatic2, SW_HIDE);
+            ShowWindow(hwndStatic3, SW_HIDE);
+            ShowWindow(hwndStatic4, SW_HIDE);
+
             ShowWindow(hwndCal, SW_HIDE);
 
-            TCHAR _firstNameValue[20];
-            TCHAR _lastNameValue[20];
-            TCHAR _guestNmbrValue[20];
+
+            wchar_t _firstNameValue[20];
+            wchar_t _lastNameValue[20];
+            wchar_t _guestNmbrValue[5];
 
             GetWindowText(hwndText, _firstNameValue, 20);
             GetWindowText(hwndText2, _lastNameValue, 20);
-            GetWindowText(hwndText3, _guestNmbrValue, 20);
+            GetWindowText(hwndText3, _guestNmbrValue, 5);
 
             std::string _firNameString = "";
             std::string _lasNameString = "";
@@ -184,8 +250,19 @@ Booking AddBookingWindow::Show(HWND _window)
 
             for (size_t i = 0; i < 20; i++)
             {
+                if (_firstNameValue[i] == '\0') break;
                 _firNameString += _firstNameValue[i];
+            }
+
+            for (size_t i = 0; i < 20; i++)
+            {
+                if (_lastNameValue[i] == '\0') break;
                 _lasNameString += _lastNameValue[i];
+            }
+
+            for (size_t i = 0; i < 20; i++)
+            {
+                if (_guestNmbrValue[i] == '\0') break;
                 _gueNmbrString += _guestNmbrValue[i];
             }
 
@@ -202,7 +279,7 @@ Booking AddBookingWindow::Show(HWND _window)
                                           Date(_time[0].wDay, _time[0].wMonth, _time[0].wYear),
                                           Date(_time[1].wDay, _time[1].wMonth, _time[1].wYear));
 
-   
+            UpdateWindow(_window);
 
             return _newBooking;
         }

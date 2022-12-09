@@ -20,11 +20,11 @@ public:
 	/// <summary>
 	///		Return the instance of the singleton
 	/// </summary>
-	/// <returns> instance </returns>
+	/// <returns> Pointer of the instance </returns>
 	T* GetInstance();
 
 	/// <summary>
-	///		Will be used by herited singleton to redifine the destructor
+	///		Will eventually be overrided by herited singleton to redifine their destructor
 	/// </summary>
 	virtual void OnDestroy();
 #pragma endregion

@@ -21,6 +21,7 @@ public:
 	/// 	Used to display a booking window with bookings information, it contains the three main client's informations in text
 	///		 and a calendar with the client's schedule highlighted
 	/// </summary>
+	/// <param name="_window"> instance of the parent window</param>
 	/// <param name="_firstName"> first name of the client </param>
 	/// <param name="_lastName"> last name of the client </param>
 	/// <param name="_peopleNmbr"> number of people for the booking </param>

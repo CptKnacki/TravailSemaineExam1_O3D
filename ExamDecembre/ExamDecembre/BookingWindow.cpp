@@ -2,7 +2,6 @@
 #include <CommCtrl.h> // Librairie pour le calendrier //
 #include <format>
 
-
 #pragma region Constructor
 
 BookingWindow::BookingWindow(const std::string _title) : Window(_title)
@@ -11,15 +10,13 @@ BookingWindow::BookingWindow(const std::string _title) : Window(_title)
 
 #pragma endregion
 
-
-#pragma region Override
+#pragma region Methods
 
 int BookingWindow::Show(HWND _window, std::string _firstName, std::string _lastName, int _peopleNmbr, Date& _arrivalDate, Date& _departureDate)
 {
 
     PAINTSTRUCT ps;
     HDC hdc = BeginPaint(_window, &ps);
-
 
 
     HWND hwndButton1 = CreateWindow(
@@ -52,8 +49,6 @@ int BookingWindow::Show(HWND _window, std::string _firstName, std::string _lastN
         NULL
     ); // Button 2 //      
 
-
-
     HWND hwndCal = CreateWindow(
         MONTHCAL_CLASS,
         L"OK",
@@ -68,48 +63,106 @@ int BookingWindow::Show(HWND _window, std::string _firstName, std::string _lastN
         NULL
     ); // Calendar //         
 
+    SYSTEMTIME lt;
+    GetLocalTime(&lt);
+
+    MonthCal_GetToday(hwndCal, &lt);
+    MonthCal_SetRange(hwndCal, GDTR_MIN, &lt);
     MonthCal_SetMaxSelCount(hwndCal, 100);
 
-    LPSYSTEMTIME _time = new SYSTEMTIME[2];
 
-    //_time[0] = SYSTEMTIME(_arrivalDate.GetYear(), _arrivalDate.GetMonth(), _arrivalDate.GetDay());
-    //_time[1] = SYSTEMTIME(_departureDate.GetYear(), _departureDate.GetMonth(), _departureDate.GetDay());
-
-    _time[0] = SYSTEMTIME(2022, 12, 07);
-    _time[1] = SYSTEMTIME(9998, 12, 31);
-
-    //MonthCal_SetCurSel(hwndCal, _time);
-
-    MonthCal_SetRange(hwndCal, GDTR_MIN | GDTR_MAX, _time);
-
+    //int _numberOfDays = (_departureDate.GetYear() * 365 + _departureDate.GetMonth() * 31 + _departureDate.GetDay()) - (_arrivalDate.GetYear() * 365 + _arrivalDate.GetMonth() * 31 + _arrivalDate.GetDay()) + 1;
+    
+    SYSTEMTIME _timeTab[2];
+    _timeTab[0] = SYSTEMTIME(_arrivalDate.GetYear(), _arrivalDate.GetMonth(), _arrivalDate.GetDay());
+    _timeTab[1] = SYSTEMTIME(_departureDate.GetYear(), _departureDate.GetMonth(), _departureDate.GetDay());
+ 
+    MonthCal_SetSelRange(_window, &_timeTab);
+    
+    NMSELCHANGE _select(tagNMSELCHANGE(NMHDR(hwndCal, 0, 0), _timeTab[0], _timeTab[1]));
+    
+    SendMessageW(_window, MCN_SELCHANGE, 0, (LPARAM)&_select);
+    
 
     size_t _size1 = _firstName.size();
     size_t _size2 = _lastName.size();
-    size_t _size3 = _size1 + _size2 + 4;
+    size_t _size3 = std::to_string(_peopleNmbr).size();
+    size_t _size4 = _size1 + _size2 + 4;
 
-    std::wstring _str1 = std::wstring(_firstName.begin(), _firstName.end());
-    std::wstring _str2 = std::wstring(_lastName.begin(), _lastName.end());
-    std::wstring _str3 = std::to_wstring(_peopleNmbr);
+    std::wstring _str1 = L"First name : " + std::wstring(_firstName.begin(), _firstName.end());
+    std::wstring _str2 = L"Last name : " + std::wstring(_lastName.begin(), _lastName.end());
+    std::wstring _str3 = L"People number : " + std::to_wstring(_peopleNmbr);
 
     std::string _end1 = " //";
     std::wstring _end2 = std::wstring(_end1.begin(), _end1.end());
 
-    std::wstring _str4 = _str1 + (wchar_t)' ' + _str2 + _end2;
-   
+    std::wstring _str4 = L"// Booking of : " + std::wstring(_firstName.begin(), _firstName.end()) + L" " + std::wstring(_lastName.begin(), _lastName.end()) + _end2;
+
     LPCWSTR _LasName(_str2.c_str());
 
-    TextOut(hdc, 10, 100, L"First name : ", 14); // Text 1 //
-    TextOut(hdc, 100, 100, _str1.c_str(), _size1); // Answer Text 1 //
+    HWND hwndStatic1 = CreateWindow(
+        L"Static",
+        _str1.c_str(),
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
 
-    TextOut(hdc, 10, 130, L"Last name : ", 13); // Text 2 //
-    TextOut(hdc, 100, 130, _str2.c_str(), _size2); // Answer Text 2 //
+        10,
+        100,
+        200,
+        20,
 
-    TextOut(hdc, 10, 180, L"People number : ", 17); // Text 3 //
-    TextOut(hdc, 130, 180, _str3.c_str(), _str3.size()); // Answer Text 3 //
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 1 // 
 
-    TextOut(hdc, 300, 10, L"// Booking of : ", 17); // Title //
-    TextOut(hdc, 395, 10, _str4.c_str(), _str4.size()); // Title Completion//
+    HWND hwndStatic2 = CreateWindow(
+        L"Static",
+        _str2.c_str(),
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
 
+        10,
+        130,
+        200,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 2 // 
+
+    HWND hwndStatic3 = CreateWindow(
+        L"Static",
+        _str3.c_str(),
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+
+        10,
+        180,
+        150,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 3 // 
+
+    HWND hwndStatic4 = CreateWindow(
+        L"Static",
+        _str4.c_str(),
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
+
+        300,
+        10,
+        300,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 4 // 
 
     ShowWindow(_window, SW_SHOW);
 
@@ -123,8 +176,13 @@ int BookingWindow::Show(HWND _window, std::string _firstName, std::string _lastN
             ShowWindow(hwndButton2, SW_HIDE);
             ShowWindow(hwndCal, SW_HIDE);
 
-            UpdateWindow(_window);
+            ShowWindow(hwndStatic1, SW_HIDE);
+            ShowWindow(hwndStatic2, SW_HIDE);
+            ShowWindow(hwndStatic3, SW_HIDE);
+            ShowWindow(hwndStatic4, SW_HIDE);
 
+            UpdateWindow(_window);
+       
             return 1;
         }
 
@@ -133,6 +191,11 @@ int BookingWindow::Show(HWND _window, std::string _firstName, std::string _lastN
             ShowWindow(hwndButton1, SW_HIDE);
             ShowWindow(hwndButton2, SW_HIDE);
             ShowWindow(hwndCal, SW_HIDE);
+
+            ShowWindow(hwndStatic1, SW_HIDE);
+            ShowWindow(hwndStatic2, SW_HIDE);
+            ShowWindow(hwndStatic3, SW_HIDE);
+            ShowWindow(hwndStatic4, SW_HIDE);
 
             UpdateWindow(_window);
 

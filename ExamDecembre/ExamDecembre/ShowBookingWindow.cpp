@@ -10,12 +10,9 @@
 ShowBookingWindow::ShowBookingWindow(const std::string _title) : Window(_title)
 {
 }
-
-
 #pragma endregion
 
-
-#pragma region Override
+#pragma region Methods
 
 int ShowBookingWindow::Show(HWND _window, std::vector<Booking> _bookings)
 {
@@ -42,9 +39,26 @@ int ShowBookingWindow::Show(HWND _window, std::vector<Booking> _bookings)
     size_t _size = _bookings.size();
     std::vector<HWND> _buttonList = std::vector<HWND>();
 
+    HWND hwndStatic2 = CreateWindow(
+        L"Static",
+        L"No bookings...",
+        WS_TABSTOP | SW_HIDE | WS_CHILD,
+
+        30,
+        50,
+        120,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 2 // 
+
+       
     if (_size == 0)
     {
-        TextOut(hdc, 30, 50, L"No bookings...", 15); // Title //
+        ShowWindow(hwndStatic2, SW_SHOW);
     }
     else
     {
@@ -63,10 +77,24 @@ int ShowBookingWindow::Show(HWND _window, std::vector<Booking> _bookings)
             
             std::string _temp1 = _bookings[i].GetFirstName();
             std::string _temp2 = _bookings[i].GetLastName();
+            std::string _temp3 = "";
+
+            size_t _size1 = _temp1.size();
+            size_t _size2 = _temp2.size();
+
+            for (size_t i = 0; i < _size1; i++)
+                _temp3 += _temp1[i];
+            
+            _temp3 += ' ';
+
+            for (size_t i = 0; i < _size2; i++)
+                _temp3 += _temp2[i];
+
+            _temp3 += '\0';
 
             std::wstring _str1 = std::wstring(_temp1.begin(), _temp1.end());
             std::wstring _str2 = std::wstring(_temp2.begin(), _temp2.end());
-            std::wstring _str3 = _str1 + (wchar_t)' ' + _str2;
+            std::wstring _str3 = std::wstring(_temp3.begin(), _temp3.end());
 
                 hwndButtonlist = CreateWindow(
                 L"BUTTON",
@@ -97,8 +125,21 @@ int ShowBookingWindow::Show(HWND _window, std::vector<Booking> _bookings)
         }
     }
             
+    HWND hwndStatic1 = CreateWindow(
+        L"Static",
+        L"// Booking View //",
+        WS_TABSTOP | WS_VISIBLE | WS_CHILD,
 
-    TextOut(hdc, 300, 10, L"// Booking View //", 19); // Title //
+        300,
+        10,
+        120,
+        20,
+
+        _window,
+        NULL,
+        (HINSTANCE)GetWindowLongPtr(_window, GWLP_HINSTANCE),
+        NULL
+    ); // Static Zone 1 // 
 
     ShowWindow(_window, SW_SHOW);
 
@@ -109,6 +150,8 @@ int ShowBookingWindow::Show(HWND _window, std::vector<Booking> _bookings)
         if (SendMessage(hwndButton1, BM_GETSTATE, 0, 0) == 620)
         {
             ShowWindow(hwndButton1, SW_HIDE);
+            ShowWindow(hwndStatic1, SW_HIDE);
+            ShowWindow(hwndStatic2, SW_HIDE);
 
             for (size_t i = 0; i < _size; i++)
                 ShowWindow((HWND)_buttonList[i], SW_HIDE);
@@ -123,6 +166,8 @@ int ShowBookingWindow::Show(HWND _window, std::vector<Booking> _bookings)
             if(SendMessage((HWND)_buttonList[i], BM_GETSTATE, 0, 0) == 620)
             {
                 ShowWindow(hwndButton1, SW_HIDE);
+                ShowWindow(hwndStatic1, SW_HIDE);
+                ShowWindow(hwndStatic2, SW_HIDE);
 
                 for (size_t x = 0; x < _size; x++)
                     ShowWindow((HWND)_buttonList[x], SW_HIDE);

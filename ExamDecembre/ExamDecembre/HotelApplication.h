@@ -42,18 +42,21 @@ public:
 	/// <param name="_numberOfGuests"> number of people for the booking </param>
 	/// <param name="_arrivalDate"> arrival date </param>
 	/// <param name="_departureDate"> departure date </param>
+	/// <return> Indicate if the method successfully worked </return>
 	int CreateBooking(const std::string _firstName, const std::string _lastName, const int _numberOfGuests, const Date& _arrivalDate, const Date& _departureDate);
 	
 	/// <summary>
 	///		Create a new booking with an already created Booking
 	/// </summary>
 	/// <param name="_other"> instance of the booking that will be created </param>
+	/// <return> Indicate if the method successfully worked </return>
 	int CreateBooking(Booking& _other);
 	
 	/// <summary>
 	///		Delete a booking regarding of the given index, also return -4 if the _index is out of range
 	/// </summary>
 	/// <param name="_index"> index of the booking that will be erased </param>
+	/// <return> Indicate if the method successfully worked </return>
 	int DeleteBooking(const int _index);
 
 	/// <summary>

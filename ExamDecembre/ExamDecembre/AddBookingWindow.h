@@ -22,6 +22,8 @@ public:
 	///		 to choose client's schedule, there is also a return button and a save booking button
 	///		 that will send the info and create a new booking
 	/// </summary>
+	/// <param name="_window"> instance of the parent window</param>
+	/// <return> Return the booking created by the saving the user's input, or a blank booking if not </return>
 	Booking Show(HWND _window);
 
 #pragma endregion

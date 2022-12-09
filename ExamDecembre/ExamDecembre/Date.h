@@ -4,9 +4,9 @@ class Date
 {
 #pragma region f/p
 private:
-	int day = 5; 
-	int month = 12;
-	int year = 2022;
+	int day = 0; 
+	int month = 0;
+	int year = 0;
 #pragma endregion
 
 #pragma region Constructor
@@ -22,19 +22,19 @@ public:
 	/// <summary>
 	///		Return the value of the day
 	/// </summary>
-	/// <returns> day </returns>
+	/// <returns> Value of the day </returns>
 	int GetDay();
 
 	/// <summary>
 	///		Return the value of the month
 	/// </summary>
-	/// <returns> month </returns>
+	/// <returns> Value of the month </returns>
 	int GetMonth();
 
 	/// <summary>
 	///		Return the value of the year
 	/// </summary>
-	/// <returns> year </returns>
+	/// <returns> Value of the year </returns>
 	int GetYear();
 #pragma endregion
 

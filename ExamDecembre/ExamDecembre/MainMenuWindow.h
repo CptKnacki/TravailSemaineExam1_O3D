@@ -19,6 +19,8 @@ public:
 	///		Used to display the main menu of the application, made of two buttons,
 	///		 one to go to the add booking menu and the other to the show booking menu
 	/// </summary>
+	/// <param name="_window"> instance of the parent window</param>
+	/// <return> Index of the user's choice </return>
 	int Show(HWND _window);
 
 #pragma endregion
