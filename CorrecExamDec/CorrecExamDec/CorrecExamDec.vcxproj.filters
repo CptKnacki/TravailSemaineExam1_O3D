@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{9e30444d-3cb2-4565-ae00-fd0ed0850b04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{e75fbe17-d9ad-4ca8-af37-dda8742e8e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control">
+      <UniqueIdentifier>{eecfcdc5-0c8a-48fc-aa71-987bae4f67eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Button">
+      <UniqueIdentifier>{1b17da38-0aa3-4dd9-ad70-064fd44ccb8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{8f822a9c-2008-43b5-bda2-575c9c55cfc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Rect">
+      <UniqueIdentifier>{5960a953-68e0-43f2-969f-24df8e9fbecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{ab8bbad6-b4e9-435a-9b1e-535cd698fc06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event\Delegate">
+      <UniqueIdentifier>{2c9b42c9-1dd6-4559-965b-a782765de81a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Label">
+      <UniqueIdentifier>{612e6954-1010-4033-b40d-bf4831032eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\TextField">
+      <UniqueIdentifier>{569a8ebf-64eb-44e5-8812-c398422d0ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Menu">
+      <UniqueIdentifier>{cc7b5638-a6e7-4108-81dc-94dc5d865d77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Menu\MainMenu">
+      <UniqueIdentifier>{27012761-c408-4a22-a626-dd0bd7555727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\DataBase">
+      <UniqueIdentifier>{0b15134d-fa40-4336-be1b-1af6eadb7f32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Menu\BookingMenu">
+      <UniqueIdentifier>{4439e8f8-1ff1-4157-b4f7-78dc77153448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Calendar">
+      <UniqueIdentifier>{45bf2f73-59bd-4be0-a239-659602474d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\DateTime">
+      <UniqueIdentifier>{e072911f-54c5-4207-9ed3-0255c8a40fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Booking">
+      <UniqueIdentifier>{04e5001b-b97b-4b8a-8b3d-e178cae1770f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Booking\Client">
+      <UniqueIdentifier>{ef44923e-6136-4085-940e-89e173b559bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CorrecExamDec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowControl.cpp">
+      <Filter>Window\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonControl.cpp">
+      <Filter>Window\Control\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Utils\Rect</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelControl.cpp">
+      <Filter>Window\Control\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="TextFieldControl.cpp">
+      <Filter>Window\Control\TextField</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseMenu.cpp">
+      <Filter>Window\Control\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Window\Control\Menu\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="BookingMenu.cpp">
+      <Filter>Window\Control\Menu\BookingMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="CalendarControl.cpp">
+      <Filter>Window\Control\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="DateTime.cpp">
+      <Filter>Utils\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Booking\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Booking.cpp">
+      <Filter>Booking</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowControl.h">
+      <Filter>Window\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonControl.h">
+      <Filter>Window\Control\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Utils\Rect</Filter>
+    </ClInclude>
+    <ClInclude Include="Delegate.h">
+      <Filter>Event\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelControl.h">
+      <Filter>Window\Control\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="TextFieldControl.h">
+      <Filter>Window\Control\TextField</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMenu.h">
+      <Filter>Window\Control\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Window\Control\Menu\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBase.h">
+      <Filter>Utils\DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="BookingMenu.h">
+      <Filter>Window\Control\Menu\BookingMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="CalendarControl.h">
+      <Filter>Window\Control\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="DateTime.h">
+      <Filter>Utils\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Booking\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Booking.h">
+      <Filter>Booking</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
