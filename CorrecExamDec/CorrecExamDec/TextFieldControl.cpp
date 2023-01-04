@@ -1,5 +1,7 @@
 #include "TextFieldControl.h"
 
+
+#pragma region Constructor
 TextFieldControl::TextFieldControl(int _controlID, HWND _owner, const Rect& _rect, const wchar_t* _defaultText) : super(_controlID, _owner, _rect)
 {
     defaultText = _defaultText;
@@ -12,9 +14,27 @@ TextFieldControl::TextFieldControl(const TextFieldControl& _copy) : super(_copy)
     currentText = _copy.defaultText;
 }
 
+#pragma endregion
+
+#pragma region Methods
+
+void TextFieldControl::OnValueChange()
+{
+    const int _length = GetWindowTextLength(instance) + 1;
+    char* _array = new char[_length];
+    GetWindowTextA(instance, &_array[0], _length);
+    std::string _result = _array;
+    currentText = std::wstring(_result.begin(), _result.end());
+}
+
 std::wstring TextFieldControl::CurrentText() const
 {
     return currentText;
+}
+
+std::string TextFieldControl::CurrentTextStr() const
+{
+    return std::string(currentText.begin(), currentText.end());
 }
 
 void TextFieldControl::OnTextChange(const wchar_t* _text)

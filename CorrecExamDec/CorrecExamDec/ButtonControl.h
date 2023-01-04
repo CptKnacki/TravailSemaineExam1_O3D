@@ -26,6 +26,9 @@ public:
 
 #pragma endregion
 
+public:
+	virtual void OnUse();
+
 #pragma region Override
 	HWND Create() override;
 #pragma endregion

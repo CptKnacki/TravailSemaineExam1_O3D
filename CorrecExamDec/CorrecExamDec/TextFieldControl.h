@@ -11,7 +11,7 @@ public:
 	static inline std::map<int, TextFieldControl*> textFields = std::map<int, TextFieldControl*>();
 private:
 	const wchar_t* defaultText = TEXT("");
-	const wchar_t* currentText = TEXT("");
+	std::wstring currentText = TEXT("");
 
 #pragma endregion
 
@@ -27,7 +27,9 @@ public:
 
 #pragma region Methods
 public:
+	void OnValueChange();
 	std::wstring CurrentText() const;
+	std::string CurrentTextStr() const;
 	void OnTextChange(const wchar_t* _text);
 
 #pragma endregion

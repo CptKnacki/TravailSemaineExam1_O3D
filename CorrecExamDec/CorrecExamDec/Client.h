@@ -8,6 +8,7 @@ class Client : public Object
 private:
 	std::string firstName = "";
 	std::string lastName = "";
+	int numberOfClient = 0;
 
 public:
 	Client() = default;
@@ -17,5 +18,6 @@ public:
 public:
 	std::string FirstName() const;
 	std::string LastName() const;
+	int NumberOfClient() const;
 };
 

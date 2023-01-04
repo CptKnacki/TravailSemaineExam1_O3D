@@ -14,7 +14,7 @@ private:
 
 public:
 	Booking() = default;
-	Booking(DateTime _arrivedDate, DateTime _departureDate, Client& _client , int _numberOfPeople);
+	Booking(DateTime _arrivedDate, DateTime _departureDate, const Client& _client , int _numberOfPeople);
 	Booking(const Booking& _copy);
 
 public:

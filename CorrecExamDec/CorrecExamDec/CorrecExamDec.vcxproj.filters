@@ -43,17 +43,8 @@
     <Filter Include="Window\Control\TextField">
       <UniqueIdentifier>{569a8ebf-64eb-44e5-8812-c398422d0ad8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Window\Control\Menu">
-      <UniqueIdentifier>{cc7b5638-a6e7-4108-81dc-94dc5d865d77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Control\Menu\MainMenu">
-      <UniqueIdentifier>{27012761-c408-4a22-a626-dd0bd7555727}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utils\DataBase">
       <UniqueIdentifier>{0b15134d-fa40-4336-be1b-1af6eadb7f32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Control\Menu\BookingMenu">
-      <UniqueIdentifier>{4439e8f8-1ff1-4157-b4f7-78dc77153448}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Control\Calendar">
       <UniqueIdentifier>{45bf2f73-59bd-4be0-a239-659602474d28}</UniqueIdentifier>
@@ -66,6 +57,30 @@
     </Filter>
     <Filter Include="Booking\Client">
       <UniqueIdentifier>{ef44923e-6136-4085-940e-89e173b559bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Booking\Manager">
+      <UniqueIdentifier>{ba9b161c-6906-4a88-8ed4-67460fcb7831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Singleton">
+      <UniqueIdentifier>{979dd72d-4aea-459d-9472-e264372125bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Menu">
+      <UniqueIdentifier>{cc7b5638-a6e7-4108-81dc-94dc5d865d77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Menu\MainMenu">
+      <UniqueIdentifier>{27012761-c408-4a22-a626-dd0bd7555727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Menu\BookingMenu">
+      <UniqueIdentifier>{4439e8f8-1ff1-4157-b4f7-78dc77153448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Menu\BookingViewMenu">
+      <UniqueIdentifier>{14cea0ac-af79-44f5-903f-1ec0da4f1f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Menu\BookingViewDataMenu">
+      <UniqueIdentifier>{9e0f76e0-2465-4381-affc-e5812444d0bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Control\Button\Booking">
+      <UniqueIdentifier>{106d4563-19b3-43a8-bc35-95d40baed00e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,13 +109,13 @@
       <Filter>Window\Control\TextField</Filter>
     </ClCompile>
     <ClCompile Include="BaseMenu.cpp">
-      <Filter>Window\Control\Menu</Filter>
+      <Filter>Window\Menu</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>Window\Control\Menu\MainMenu</Filter>
+      <Filter>Window\Menu\MainMenu</Filter>
     </ClCompile>
     <ClCompile Include="BookingMenu.cpp">
-      <Filter>Window\Control\Menu\BookingMenu</Filter>
+      <Filter>Window\Menu\BookingMenu</Filter>
     </ClCompile>
     <ClCompile Include="CalendarControl.cpp">
       <Filter>Window\Control\Calendar</Filter>
@@ -113,6 +128,18 @@
     </ClCompile>
     <ClCompile Include="Booking.cpp">
       <Filter>Booking</Filter>
+    </ClCompile>
+    <ClCompile Include="BookingManager.cpp">
+      <Filter>Booking\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BookingViewMenu.cpp">
+      <Filter>Window\Menu\BookingViewMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="BookingViewDataMenu.cpp">
+      <Filter>Window\Menu\BookingViewDataMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonBookingControl.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,16 +168,16 @@
       <Filter>Window\Control\TextField</Filter>
     </ClInclude>
     <ClInclude Include="BaseMenu.h">
-      <Filter>Window\Control\Menu</Filter>
+      <Filter>Window\Menu</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>Window\Control\Menu\MainMenu</Filter>
+      <Filter>Window\Menu\MainMenu</Filter>
     </ClInclude>
     <ClInclude Include="DataBase.h">
       <Filter>Utils\DataBase</Filter>
     </ClInclude>
     <ClInclude Include="BookingMenu.h">
-      <Filter>Window\Control\Menu\BookingMenu</Filter>
+      <Filter>Window\Menu\BookingMenu</Filter>
     </ClInclude>
     <ClInclude Include="CalendarControl.h">
       <Filter>Window\Control\Calendar</Filter>
@@ -163,6 +190,21 @@
     </ClInclude>
     <ClInclude Include="Booking.h">
       <Filter>Booking</Filter>
+    </ClInclude>
+    <ClInclude Include="BookingManager.h">
+      <Filter>Booking\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Utils\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="BookingViewMenu.h">
+      <Filter>Window\Menu\BookingViewMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="BookingViewDataMenu.h">
+      <Filter>Window\Menu\BookingViewDataMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonBookingControl.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

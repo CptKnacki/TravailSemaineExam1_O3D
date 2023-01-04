@@ -29,6 +29,7 @@ public:
 	std::string TextStr();
 	std::wstring Text();
 	void SetText(const wchar_t* _newText);
+	void SetText(const std::string& _str);
 #pragma endregion
 
 #pragma region Override

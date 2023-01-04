@@ -3,6 +3,7 @@
 #include "LabelControl.h"
 #include "TextFieldControl.h"
 #include "BaseMenu.h"
+#include "CalendarControl.h"
 #include <ranges>
 #include <format>
 #include <iostream>
@@ -74,8 +75,31 @@ LRESULT __stdcall Window::WindowProc(HWND _window, UINT _msg, WPARAM _wparam, LP
 	case WM_COMMAND:
 	{
 		if (!ButtonControl::buttons.contains(_wparam)) break;
-		ButtonControl::buttons[_wparam]->OnClick.Invoke();
+
+		ButtonControl::buttons[_wparam]->OnUse();
 		break;
+	}
+	case WM_NOTIFY:
+	{
+		LPNMHDR _lpm = (LPNMHDR) _lparam;
+		switch (_lpm->code)
+		{
+		case MCN_SELECT:
+		{
+			std::map<int, CalendarControl*> _calendars = CalendarControl::calendars;
+			for (std::pair<int, CalendarControl*> _pair : _calendars)
+			{
+				if (_pair.first == _wparam)
+				{
+					_pair.second->OnChoice((LPNMSELCHANGE)_lparam);
+					break;
+				}
+			}
+			break;
+		}
+		}
+		break;
+
 	}
 	case WM_DESTROY:
 	{

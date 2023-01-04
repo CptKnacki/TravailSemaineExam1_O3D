@@ -1,7 +1,7 @@
 #include "Booking.h"
 #include "Client.h"
 
-Booking::Booking(DateTime _arrivedDate, DateTime _departureDate, Client& _client, int _numberOfPeople)
+Booking::Booking(DateTime _arrivedDate, DateTime _departureDate, const Client& _client, int _numberOfPeople)
 {
 	arrivedDate = _arrivedDate;
 	departureDate = _departureDate;

@@ -1,16 +1,19 @@
 #include <iostream>
-#include "Object.h"
 #include "Window.h"
 #include "MainMenu.h"
-#include "DataBase.h"
 #include "BookingMenu.h"
+#include "BookingViewMenu.h"
+#include "DataBase.h"
 
 int main()
 {
-    Window _window = Window(L"Hotel O3D", 900, 800);
-    _window.RegisterMenu(new BookingMenu(&_window));
-    _window.SetCurrentMenu(BOOKINGMENU);
-    _window.Open();
+	Window win = Window(L"Hotel O3D", 900, 800);
+	win.RegisterMenu(new MainMenu(&win));
+	win.RegisterMenu(new BookingMenu(&win));
+	win.RegisterMenu(new BookingViewMenu(&win));
+	win.SetCurrentMenu(MAINMENU);
 
-    return 0;
+	win.Open();
+
+	return 0;
 }

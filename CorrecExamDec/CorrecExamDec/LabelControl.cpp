@@ -32,6 +32,12 @@ void LabelControl::SetText(const wchar_t* _newText)
 	text = _newText;
 }
 
+void LabelControl::SetText(const std::string& _str)
+{
+	const std::wstring _wstr(_str.begin(), _str.end());
+	SetText(_wstr.c_str());
+}
+
 HWND LabelControl::Create()
 {
 	instance = CreateWindow(TEXT("STATIC"), text, WS_VISIBLE | WS_CHILD,

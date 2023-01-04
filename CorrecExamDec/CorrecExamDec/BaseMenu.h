@@ -5,6 +5,7 @@
 
 class Window;
 class WindowControl;
+class LabelControl;
 
 class BaseMenu : public Object
 {
@@ -13,12 +14,11 @@ class BaseMenu : public Object
 #pragma region f/p
 protected:
 	static inline int currentControlID = 0;
-
-protected:
 	const char* name = "";
 	bool isInitialized = false;
 	Window* owner = nullptr;
 	std::vector<WindowControl*> controls = std::vector<WindowControl*>();
+	LabelControl* titleControl = nullptr;
 #pragma endregion
 
 #pragma region Constructor
@@ -37,9 +37,10 @@ public:
 	std::string Name() const;
 
 protected:
-	void CreateButton(const Rect& _rect, const wchar_t* text);
-	void CreateLabel(const Rect& _rect, const wchar_t* text);
-	void CreateTextField(const Rect& _rect, const wchar_t* _defaulttext);
+	class ButtonControl* CreateButton(const Rect& _rect, const wchar_t* text);
+	class LabelControl* CreateLabel(const Rect& _rect, const wchar_t* text);
+	class TextFieldControl* CreateTextField(const Rect& _rect, const wchar_t* _defaulttext);
+	class ButtonBookingControl* CreateBookingButton(const Rect& _rect, const wchar_t* _defaulttext, class Booking* _booking);
 	class CalendarControl* CreateCalendar(const Rect& _rect);
 #pragma endregion
 };

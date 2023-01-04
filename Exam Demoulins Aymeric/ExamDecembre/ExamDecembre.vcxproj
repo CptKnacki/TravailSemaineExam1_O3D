@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b11866f5-0230-4b06-8355-a7897244b3de}</ProjectGuid>
-    <RootNamespace>CorrecExamDec</RootNamespace>
+    <ProjectGuid>{e81752c5-2815-4809-a83e-6a6cb5689cd0}</ProjectGuid>
+    <RootNamespace>ExamDecembre</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -129,48 +129,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaseMenu.cpp" />
+    <ClCompile Include="AddBookingWindow.cpp" />
     <ClCompile Include="Booking.cpp" />
-    <ClCompile Include="BookingManager.cpp" />
-    <ClCompile Include="BookingMenu.cpp" />
-    <ClCompile Include="BookingViewDataMenu.cpp" />
-    <ClCompile Include="BookingViewMenu.cpp" />
-    <ClCompile Include="ButtonBookingControl.cpp" />
-    <ClCompile Include="ButtonControl.cpp" />
-    <ClCompile Include="CalendarControl.cpp" />
-    <ClCompile Include="Client.cpp" />
-    <ClCompile Include="CorrecExamDec.cpp" />
-    <ClCompile Include="DateTime.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Rect.cpp" />
-    <ClCompile Include="LabelControl.cpp" />
-    <ClCompile Include="TextFieldControl.cpp" />
+    <ClCompile Include="BookingWindow.cpp" />
+    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="ExamDecembre.cpp" />
+    <ClCompile Include="HotelApplication.cpp" />
+    <ClCompile Include="MainMenuWindow.cpp" />
+    <ClCompile Include="ShowBookingWindow.cpp" />
     <ClCompile Include="Window.cpp" />
-    <ClCompile Include="WindowControl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseMenu.h" />
+    <ClInclude Include="AddBookingWindow.h" />
     <ClInclude Include="Booking.h" />
-    <ClInclude Include="BookingManager.h" />
-    <ClInclude Include="BookingMenu.h" />
-    <ClInclude Include="BookingViewDataMenu.h" />
-    <ClInclude Include="BookingViewMenu.h" />
-    <ClInclude Include="ButtonBookingControl.h" />
-    <ClInclude Include="ButtonControl.h" />
-    <ClInclude Include="CalendarControl.h" />
-    <ClInclude Include="Client.h" />
-    <ClInclude Include="DataBase.h" />
-    <ClInclude Include="DateTime.h" />
-    <ClInclude Include="Delegate.h" />
-    <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Rect.h" />
-    <ClInclude Include="LabelControl.h" />
+    <ClInclude Include="BookingWindow.h" />
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="HotelApplication.h" />
+    <ClInclude Include="MainMenuWindow.h" />
+    <ClInclude Include="ShowBookingWindow.h" />
     <ClInclude Include="Singleton.h" />
-    <ClInclude Include="TextFieldControl.h" />
     <ClInclude Include="Window.h" />
-    <ClInclude Include="WindowControl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

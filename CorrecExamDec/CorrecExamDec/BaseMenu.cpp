@@ -5,6 +5,8 @@
 #include "LabelControl.h"
 #include "DataBase.h"
 #include "TextFieldControl.h"
+#include "Booking.h"
+#include "ButtonBookingControl.h"
 #include "CalendarControl.h"
 #pragma region Constructor
 
@@ -51,7 +53,7 @@ void BaseMenu::Initialize()
 
 	std::string _str = name;
 	std::wstring _wstr(_str.begin(), _str.end());
-	CreateLabel(Rect(owner->Width() / 2, 0, 255, 20), _wstr.c_str());
+	titleControl = CreateLabel(Rect(owner->Width() / 2, 0, 255, 20), _wstr.c_str());
 }
 
 std::string BaseMenu::Name() const
@@ -59,25 +61,36 @@ std::string BaseMenu::Name() const
 	return name;
 }
 
-void BaseMenu::CreateButton(const Rect& _rect, const wchar_t* text)
+ButtonControl* BaseMenu::CreateButton(const Rect& _rect, const wchar_t* text)
 {
 	ButtonControl* _button = new ButtonControl(currentControlID++, owner->WindowInstance(), _rect, text);
 	_button->Create();
 	controls.push_back(_button);
+	return _button;
 }
 
-void BaseMenu::CreateLabel(const Rect& _rect, const wchar_t* text)
+LabelControl* BaseMenu::CreateLabel(const Rect& _rect, const wchar_t* text)
 {
 	LabelControl* _label = new LabelControl(currentControlID++, owner->WindowInstance(), _rect, text);
 	_label->Create();
 	controls.push_back(_label);
+	return _label;
 }
 
-void BaseMenu::CreateTextField(const Rect& _rect, const wchar_t* _defaulttext)
+TextFieldControl* BaseMenu::CreateTextField(const Rect& _rect, const wchar_t* _defaulttext)
 {
 	TextFieldControl* _textField = new TextFieldControl(currentControlID++, owner->WindowInstance(), _rect, _defaulttext);
 	_textField->Create();
 	controls.push_back(_textField);
+	return _textField;
+}
+
+ButtonBookingControl* BaseMenu::CreateBookingButton(const Rect& _rect, const wchar_t* _defaulttext, Booking* _booking)
+{
+	ButtonBookingControl* _button = new ButtonBookingControl(currentControlID++, owner->WindowInstance(), _rect, _defaulttext, _booking);
+	_button->Create();
+	controls.push_back(_button);
+	return _button;
 }
 
 CalendarControl* BaseMenu::CreateCalendar(const Rect& _rect)
